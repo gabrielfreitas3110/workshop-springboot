@@ -92,7 +92,14 @@ public class Product implements Serializable {
 	public Set<Category> getCategories() {
 		return categories;
 	}
-
+	
+	public void updateCategories(Set<Category> set) {
+		Set<Category> setAux = new HashSet<>(categories);
+		categories.removeAll(set);
+		set.removeAll(setAux);
+		categories.addAll(set);
+	}
+	
 	@JsonIgnore
 	public Set<Order> getOrders() {
 		Set<Order> set = new HashSet<>();
