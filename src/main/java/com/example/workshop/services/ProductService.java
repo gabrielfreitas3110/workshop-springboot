@@ -19,23 +19,23 @@ import com.example.workshop.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class ProductService {
-	
+
 	@Autowired
 	private ProductRepository repository;
 
 	public List<Product> findAll() {
 		return repository.findAll();
 	}
-	
+
 	public Product findById(Long id) {
 		Optional<Product> obj = repository.findById(id);
 		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
-	
+
 	public Product insert(Product obj) {
 		return repository.save(obj);
 	}
-	
+
 	public void delete(Long id) {
 		try {
 			repository.deleteById(id);
@@ -45,7 +45,7 @@ public class ProductService {
 			throw new DatabaseException(e.getMessage());
 		}
 	}
-	
+
 	public Product update(Long id, Product obj, Set<Category> set) {
 		try {
 			Product entity = repository.getOne(id);
@@ -57,10 +57,15 @@ public class ProductService {
 	}
 
 	private void updateData(Product entity, Product obj, Set<Category> set) {
-		entity.setName(obj.getName());
-		entity.setDescription(obj.getDescription());
-		entity.setPrice(obj.getPrice());
-		entity.setImgUrl(obj.getImgUrl());
-		entity.updateCategories(set);
+		if (obj.getName() != null)
+			entity.setName(obj.getName());
+		if (obj.getDescription() != null)
+			entity.setDescription(obj.getDescription());
+		if (obj.getPrice() != null)
+			entity.setPrice(obj.getPrice());
+		if (obj.getImgUrl() != null)
+			entity.setImgUrl(obj.getImgUrl());
+		if (!set.isEmpty())
+			entity.updateCategories(set);
 	}
 }
