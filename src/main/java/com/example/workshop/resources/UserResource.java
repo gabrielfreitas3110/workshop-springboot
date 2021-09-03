@@ -1,5 +1,5 @@
 package com.example.workshop.resources;
-
+/*
 import java.net.URI;
 import java.util.List;
 
@@ -20,8 +20,9 @@ import com.example.workshop.services.UserService;
 
 @RestController
 @RequestMapping(value = "/users")
+*/
 public class UserResource {
-
+/*
 	@Autowired
 	private UserService service;
 	
@@ -57,4 +58,5 @@ public class UserResource {
 		service.update(id, obj);
 		return ResponseEntity.ok().body(obj);
 	}
+	*/
  }

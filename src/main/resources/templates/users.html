@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link href="../static/css/stylesheet.css" th:href="@{/css/stylesheet.css}" rel="stylesheet">
+	<title>Workshop-Springboot</title>
+</head>
+
+<body>
+	<h2>User Mangement</h2>
+	<nav id="menu">
+		<div class="menu-item">
+			<div class="menu-text">
+				<a href="../">Home</a>
+			</div>
+		</div>
+		<div class="menu-item">
+			<div class="menu-text">
+				<a th:href="@{users}">Users</a>
+			</div>
+		</div>
+	</nav>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">Id</th>
+				<th scope="col">Name</th>
+				<th scope="col">Email</th>
+				<th scope="col">Phone</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="user: ${users}">
+				<td th:text="${user.id}"></td>
+				<td th:text="${user.name}"></td>
+				<td th:text="${user.email}"></td>
+				<td th:text="${user.phone}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+
+</html>
