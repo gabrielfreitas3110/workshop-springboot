@@ -17,8 +17,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.example.workshop.entities.User;
 import com.example.workshop.services.UserService;
 
-import net.bytebuddy.implementation.bind.MethodDelegationBinder.BindingResolver;
-
 @Controller
 public class UserController {
 
@@ -34,14 +32,8 @@ public class UserController {
 		return "users";
 	}
 	
-	@GetMapping(value = "/delete/{id}")
-	public String delete(@PathVariable("id") Long id) {
-		service.delete(id);
-		return "redirect:/users" ;
-	}
-	
 	@RequestMapping(value = "/users/add")
-	public String insert() {
+	public String getNewUser() {
 		return "newUser";
 	}
 	
@@ -55,18 +47,24 @@ public class UserController {
 		return "redirect:/users";
 	}
 	
-	@RequestMapping(value = "/edit/{id}")
+	@GetMapping(value = "/users/delete/{id}")
+	public String delete(@PathVariable("id") Long id) {
+		service.delete(id);
+		return "redirect:/users";
+	}
+	
+	@RequestMapping(value = "/users/edit/{id}")
 	public String update() {
 		return "updateUser";
 	}
 	
-	@RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "users/edit/{id}", method = RequestMethod.POST)
 	public String updateUser(@Valid User user, @PathVariable("id") Long id, BindingResult result, RedirectAttributes attributes) {
 		if (result.hasErrors()) {
 			attributes.addFlashAttribute("message", "Required fields are missing.");
-			return "redirect:/users/updateUser";
+			return "users/updateUser";
 		}
 		service.update(id, user);
-		return "redirect:/users";
+		return "users";
 	}
 }

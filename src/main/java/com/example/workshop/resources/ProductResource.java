@@ -1,5 +1,5 @@
 package com.example.workshop.resources;
-
+/*
 import java.net.URI;
 import java.util.List;
 
@@ -20,8 +20,9 @@ import com.example.workshop.services.ProductService;
 
 @RestController
 @RequestMapping(value = "/products")
+*/
 public class ProductResource {
-
+/*
 	@Autowired
 	private ProductService service;
 	
@@ -56,4 +57,5 @@ public class ProductResource {
 		service.update(id, obj, obj.getCategories());
 		return ResponseEntity.ok().body(obj);
 	}
+	*/
 }

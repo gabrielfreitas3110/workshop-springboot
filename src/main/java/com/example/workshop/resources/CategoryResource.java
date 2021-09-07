@@ -1,5 +1,5 @@
 package com.example.workshop.resources;
-
+/*
 import java.net.URI;
 import java.util.List;
 
@@ -20,8 +20,9 @@ import com.example.workshop.services.CategoryService;
 
 @RestController
 @RequestMapping(value = "/categories")
+*/
 public class CategoryResource {
-
+/*
 	@Autowired
 	private CategoryService service;
 	
@@ -56,4 +57,5 @@ public class CategoryResource {
 		service.update(id, obj);
 		return ResponseEntity.ok().body(obj);
 	}
+	*/
 }

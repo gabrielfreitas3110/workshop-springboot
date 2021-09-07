@@ -7,11 +7,11 @@
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="../static/css/stylesheet.css" th:href="@{/css/stylesheet.css}" rel="stylesheet">
-	<title>Workshop Users</title>
+	<title>Workshop Products</title>
 </head>
 
 <body>
-	<h2>Users Mangement</h2>
+	<h2>Products</h2>
 	<nav id="menu">
 		<div class="menu-item">
 			<div class="menu-text">
@@ -34,29 +34,29 @@
 			<tr>
 				<th scope="col">Id</th>
 				<th scope="col">Name</th>
-				<th scope="col">Email</th>
-				<th scope="col">Phone</th>
-				<th scope="col">Password</th>
+				<th scope="col">Description</th>
+				<th scope="col">Price</th>
+				<th scope="col">Categories</th>
 				<th scope="col">Actions</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="user: ${users}">
-				<td th:text="${user.id}"></td>
-				<td th:text="${user.name}"></td>
-				<td th:text="${user.email}"></td>
-				<td th:text="${user.phone}"></td>
-				<td th:text="${user.password}"></td>
+			<tr th:each="product: ${products}">
+				<td th:text="${product.id}"></td>
+				<td th:text="${product.name}"></td>
+				<td th:text="${product.description}"></td>
+				<td th:text="${product.price}"></td>
+				<td th:text="${product.categories}"></td>
 				<td>
-					<a th:href="@{/users/edit/{id} (id=${user.id})}"><i class="fa fa-edit"></i></a>
-					<a th:href="@{/users/delete/{id} (id=${user.id})}"><i class="fa fa-eraser"></i></a>
+					<a th:href="@{/products/edit/{id} (id=${product.id})}"><i class="fa fa-edit"></i></a>
+					<a th:href="@{/products/delete/{id} (id=${product.id})}"><i class="fa fa-eraser"></i></a>
 				</td>
 			</tr>
 		</tbody>
 	</table>
 </body>
-<a th:href="@{/users/add}">
-	<button class="btn btn-primary">New User</button>
+<a th:href="@{/products/add}">
+	<button class="btn btn-primary">New Products</button>
 </a>
 
 </html>
