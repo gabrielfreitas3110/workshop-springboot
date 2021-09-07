@@ -9,11 +9,11 @@
 	<link href="../static/css/stylesheet.css" th:href="@{/css/stylesheet.css}" rel="stylesheet">
 	<link href="../static/css/stylesheet.css" th:href="@{/css/menusheet.css}" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Workshop Product</title>
+	<title>Workshop Category</title>
 </head>
 
 <body>
-	<h2>Add new product </h2>
+	<h2>Add new category </h2>
 	<nav id="menu">
 		<div class="menu-item">
 			<div class="menu-text">
@@ -27,33 +27,24 @@
 		</div>
 		<div class="menu-item">
 			<div class="menu-text">
-				<a href="./">Products</a>
+				<a th:href="@{products}">Products</a>
 			</div>
 		</div>
 		<div class="menu-item">
 			<div class="menu-text">
-				<a th:href="@{categories}">Categories</a>
+				<a href="./">Category</a>
 			</div>
 		</div>
 	</nav>
 	<div class="container">
 		<div class="login">
 			<div class="row">
-				<h2>New Product</h2>
+				<h2>New Category</h2>
 				<div class="col-md-12">
 					<th:block th:include="validationMessage"></th:block>
 					<form method="post">
 						<label for="name">Name</label>
 						<input type="text" class="form-control" name="name" placeholder="* Product name...">
-						<br>
-						<label for="name">Description</label>
-						<input type="text" class="form-control" name="description" placeholder="* Product description...">
-						<br>
-						<label for="name">Price</label>
-						<input type="text" class="form-control" name="price" placeholder="* Product price...">
-						<br>
-						<label for="name">Category</label>
-						<input type="text" class="form-control" name="categories" placeholder="* Category name...">
 						<br>
 						<small class="form-text text-muted">(*) Campos obrigatórios</small>
 						<div class="btn-reset">
@@ -61,7 +52,7 @@
 						</div>
 						<div class="btn-register">
 							<button type="submit" id="register" class="btn btn-outline-success btn-form">Add
-								Product</button>
+								Category</button>
 						</div>
 					</form>
 				</div>
