@@ -33,24 +33,24 @@
 				<h2>Edit User</h2>
 				<div class="col-md-12">
 					<th:block th:include="validationMessage"></th:block>
-					<form th:action="@{/edit}" th:object="${user}" method="post" >
+					<form th:action="@{/edit}" th:object="${users}" method="post" >
 						<label for="name">Name</label>
-						<input type="text" class="form-control" name="name" th:field="*{name}">
+						<input type="text" class="form-control" name="name" th:field="${users.name}">
 						<br>
 						<label for="email">Email</label>
-						<input type="text" class="form-control" name="email" th:field="*{email}">
+						<input type="text" class="form-control" name="email" th:field="${users.email}">
 						<br>
 						<label for="phone">Phone</label>
-						<input type="text" class="form-control" name="phone" th:field="*{phone}">
+						<input type="text" class="form-control" name="phone" th:field="${users.phone}">
 						<br>
 						<label for="password">Password</label>
-						<input type="password" class="form-control" name="password" th:field="*{password}">
+						<input type="password" class="form-control" name="password" th:field="${users.password}">
 						<small class="form-text text-muted">(*) Campos obrigatórios</small>
 						<div class="btn-reset">
 							<button type="cancel" id="reset" class="btn btn-outline-primary btn-form">Cancel</button>
 						</div>
 						<div class="btn-register">
-							<button type="submit" id="register" class="btn btn-outline-success btn-form">Signup</button>
+							<button type="submit" id="register" class="btn btn-outline-success btn-form">Edit</button>
 						</div>
 					</form>
 				</div>

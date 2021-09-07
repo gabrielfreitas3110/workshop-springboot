@@ -46,12 +46,27 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/users/add", method = RequestMethod.POST)
-	public String savePost(@Valid User user, BindingResult result, RedirectAttributes attributes) {
+	public String saveUser(@Valid User user, BindingResult result, RedirectAttributes attributes) {
 		if (result.hasErrors()) {
 			attributes.addFlashAttribute("message", "Required fields are missing.");
 			return "redirect:/users/add";
 		}
 		service.insert(user);
+		return "redirect:/users";
+	}
+	
+	@RequestMapping(value = "/edit/{id}")
+	public String update() {
+		return "updateUser";
+	}
+	
+	@RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
+	public String updateUser(@Valid User user, @PathVariable("id") Long id, BindingResult result, RedirectAttributes attributes) {
+		if (result.hasErrors()) {
+			attributes.addFlashAttribute("message", "Required fields are missing.");
+			return "redirect:/users/updateUser";
+		}
+		service.update(id, user);
 		return "redirect:/users";
 	}
 }
