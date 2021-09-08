@@ -22,12 +22,12 @@
 		</div>
 		<div class="menu-item">
 			<div class="menu-text">
-				<a th:href="@{users}">Users</a>
+				<a href="../users">Users</a>
 			</div>
 		</div>
 		<div class="menu-item">
 			<div class="menu-text">
-				<a th:href="@{products}">Products</a>
+				<a href="../products">Products</a>
 			</div>
 		</div>
 		<div class="menu-item">
@@ -44,7 +44,7 @@
 					<th:block th:include="validationMessage"></th:block>
 					<form method="post">
 						<label for="name">Name</label>
-						<input type="text" class="form-control" name="name" placeholder="* Product name...">
+						<input type="text" class="form-control" name="name" placeholder="* Category name...">
 						<br>
 						<small class="form-text text-muted">(*) Campos obrigatórios</small>
 						<div class="btn-reset">
